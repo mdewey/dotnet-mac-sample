@@ -3,11 +3,11 @@
 
 ## Table of Contents
 
-- Intro
-- Required Software
-- Setting up the Project
-- Viewing all Shops
-- Adding a Coffee Shop
+- [Intro](https://github.com/mdewey/dotnet-mac-sample#intro)
+- [Required Software](https://github.com/mdewey/dotnet-mac-sample#required-software)
+- [Setting up the Project](https://github.com/mdewey/dotnet-mac-sample#setting-up-the-project)
+- [Viewing all Shops](https://github.com/mdewey/dotnet-mac-sample#viewing-all-shops)
+- [Adding a Coffee Shop](https://github.com/mdewey/dotnet-mac-sample#adding-a-coffee-shop)
 
 
 ## Intro
