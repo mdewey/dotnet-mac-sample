@@ -10,9 +10,30 @@ namespace dotnet_mac_sample.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CoffeeContext _context;
+
+        private DateTime CreatedAt = DateTime.Now;
+
+        public HomeController(CoffeeContext dbContext)
+        {
+            this._context = dbContext;
+
+            if (this._context.CoffeeShops.Count() == 0)
+            {
+                this._context.CoffeeShops.Add(new CoffeeShop
+                {
+                    Address = "123 Fake Street",
+                    Rating = 5,
+                    Name = "Billy's Coffee"
+                });
+                this._context.SaveChanges();
+            }
+        }
         public IActionResult Index()
         {
-            return View();
+          ViewData["Shops"] = this._context.CoffeeShops.ToList();
+
+            return View(this._context.CoffeeShops.ToList());
         }
 
         public IActionResult About()

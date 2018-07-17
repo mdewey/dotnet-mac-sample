@@ -10,6 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+// ADDED
+using Microsoft.EntityFrameworkCore;
+using dotnet_mac_sample.Models;
+
 namespace dotnet_mac_sample
 {
     public class Startup
@@ -31,6 +35,9 @@ namespace dotnet_mac_sample
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // ADDED
+            services.AddDbContext<CoffeeContext>(opt =>
+                          opt.UseInMemoryDatabase("CoffeeShops"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
