@@ -35,3 +35,11 @@ body {
         display: none;
     }
 }
+
+.thumbnail > img, .thumbnail a > img {
+    max-height: 13em;
+}
+
+.form-group{
+    margin:1em;
+}

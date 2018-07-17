@@ -24,7 +24,8 @@ namespace dotnet_mac_sample.Controllers
                 {
                     Address = "123 Fake Street",
                     Rating = 5,
-                    Name = "Billy's Coffee"
+                    Name = "Woody's Coffee", 
+                    Image ="https://i.pinimg.com/236x/1f/ef/22/1fef22de7108aee735ed502c5b3bb771--disney-characters-disney-princesses.jpg"
                 });
                 this._context.SaveChanges();
             }
