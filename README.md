@@ -7,13 +7,7 @@
 - Required Software
 - Setting up the Project
 - Viewing all Shops
-    - Adding a "Database"
-    - Updating the UI
-    - Updating the Controllers
 - Adding a Coffee Shop
-    - Updating the UI
-    - Updating the Controller
-
 
 
 ## Intro
@@ -23,3 +17,6 @@ This is meant to go hand and hand with the Crash Course `.NET on a Mac`. If you 
 
 
 ## Required Software
+## Setting up the Project
+## Viewing all Shops
+## Adding a Coffee Shop
