@@ -1,7 +1,7 @@
 TOOD.md
 
 - create follow along guide
-- create branch
+- create branch to start with /end with
 - refine follower experience 
 
 
