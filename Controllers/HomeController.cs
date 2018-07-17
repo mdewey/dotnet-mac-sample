@@ -31,9 +31,21 @@ namespace dotnet_mac_sample.Controllers
         }
         public IActionResult Index()
         {
-          ViewData["Shops"] = this._context.CoffeeShops.ToList();
+            ViewData["Shops"] = this._context.CoffeeShops.ToList();
 
             return View(this._context.CoffeeShops.ToList());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(CoffeeShop newShop)
+        {
+            if (newShop != null){
+                this._context.Add(newShop);
+                await this._context.SaveChangesAsync();
+                return this.RedirectToAction(nameof(this.Index));
+            } else {
+                return this.RedirectToAction(nameof(this.Index));
+            }
         }
 
         public IActionResult About()

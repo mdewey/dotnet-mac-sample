@@ -1,29 +1,36 @@
 ﻿@model IEnumerable<CoffeeShop>
-@{ 
-    ViewData["Title"] = "My Favorite Coffee Shops"; 
-}
 
-<div class="jumbotron">
-    <h1>
-        @ViewData["Title"]
-    </h1>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Add one</a></p>
-</div>
+    @{ ViewData["Title"] = "My Favorite Coffee Shops"; }
 
-
-
-@foreach(var shop in Model){
+    <div class="jumbotron">
+        <h1>
+            @ViewData["Title"]
+        </h1>
+        <form asp-controller="Home" asp-action="Add" method="POST">
+            <p>
+                Name: <input type="text" name="Name">
+                Address: <input type="text" name="Address">
+                Image Url: <input type="text" name="Image">
+                <button class="btn btn-primary btn-lg" type="submit"> Add One </button>
+            </p>
+        </form>
         
-<div class="row">
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <img src="@shop.Image" alt="...">
-            <div class="caption">
-                <h3>@shop.Name</h3>
-                <p>@shop.Address</p>
+    </div>
+
+
+
+    @foreach(var shop in Model){
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="@shop.Image" alt="...">
+                <div class="caption">
+                    <h3>@shop.Name</h3>
+                    <p>@shop.Address</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-}
+    }
