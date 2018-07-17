@@ -15,6 +15,3 @@ namespace dotnet_mac_sample.Models
         public double Longitude { get; set; }
     }
 }
-
-
-//https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-vsc?view=aspnetcore-2.1

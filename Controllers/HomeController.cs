@@ -12,8 +12,6 @@ namespace dotnet_mac_sample.Controllers
     {
         private readonly CoffeeContext _context;
 
-        private DateTime CreatedAt = DateTime.Now;
-
         public HomeController(CoffeeContext dbContext)
         {
             this._context = dbContext;
@@ -22,7 +20,7 @@ namespace dotnet_mac_sample.Controllers
             {
                 this._context.CoffeeShops.Add(new CoffeeShop
                 {
-                    Address = "123 Fake Street",
+                    Address = "In the toy chest, when Andy isn't looking",
                     Rating = 5,
                     Name = "Woody's Coffee", 
                     Image ="https://i.pinimg.com/236x/1f/ef/22/1fef22de7108aee735ed502c5b3bb771--disney-characters-disney-princesses.jpg"
@@ -32,8 +30,6 @@ namespace dotnet_mac_sample.Controllers
         }
         public IActionResult Index()
         {
-            ViewData["Shops"] = this._context.CoffeeShops.ToList();
-
             return View(this._context.CoffeeShops.ToList());
         }
 
