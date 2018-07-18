@@ -15,10 +15,13 @@ Welcome to learning about .NET Core on a Mac with Mark Dewey. Together we will c
 
 This is meant to go hand and hand with the Crash Course `.NET on a Mac`. If you are trying this out own your own, feel free to reach out to Mark @ mark@suncoast.io if you have issues or questions
 
+>FUN FACT: Even though this guide was made on a Mac, it can be followed on any Linux, Mac or Windows system that .NET Core supports
 
 ## Required Software
+You will need to install a few things to get up and running 
 
-// Somthing tomseting links.....
+1) .Net Core & CLI=> https://www.microsoft.com/net/download/
+2) VS Code https://code.visualstudio.com/download
 
 ## Setting up the Project
 
@@ -48,10 +51,10 @@ Lets update the scaffolding homepage to display a list of coffee shops. This mea
 
 ```
 
-Let's approach this one at a time 
+Let's approach this one step at a time 
 
 ### Add a data source
-To keep our stack simple, we will use an in memory database. .NET Core comes with Entity Framework Core. EF Core is the ORM created to work with .NET Core. 
+To keep our stack simple, we will use an in memory database. .NET Core comes with Entity Framework Core. EF Core is the ORM created to work with .NET Core. This means that if we wanted to, at a later date, we can change to a different database with minimal code change. 
 
 In order to use an ORM, like EF Core, we first must Model our data using POCOs. In the `Models` folder, create a new file called `CoffeeShop.cs` and paste in the follow code:
 
@@ -104,7 +107,7 @@ Once that is created, open `Startup.cs`. Most of this file will look like goobly
 
 We need to add two lines here.
 
-First, we need to add a `using` statement. `using` is telling our code to pull in code from some place else. With the other using statements, add a reference to your `Models` namespace and to EF Core. It should look like this:
+First, we need to add a `using` statement. `using` statements tell our code to pull in code from some place else. Close to the other `using` statements, add a reference to your `Models` namespace and to EF Core. It should look like this:
 
 >IMPORTANT: Update the namespace from `dotnet_mac_sample` to your namespace. You can find your namespace in your `Startup.cs` file
 
@@ -123,7 +126,7 @@ Next, in the method `ConfigureServices` add:
 
 This registers our `DataContext` to our services to injected into our controllers that depend on our context. 
 
-Run your add again using `dotnet run` to verify everything is building correctly. "Correctly" means that are not compiler errors
+Run your app again using `dotnet run` to verify everything is building correctly. "Correctly" means that are not compiler errors
 
 
 ### Query the data source 
@@ -171,7 +174,7 @@ public IActionResult Index()
 }
 ```
 
-Run your add again using `dotnet run` to verify everything is building correctly. "Correctly" means that are not compiler errors
+Run your app again using `dotnet run` to verify everything is building correctly. "Correctly" means that are not compiler errors.
 
 ### Display the Items
 
@@ -213,12 +216,10 @@ What did we do?
 - We added a strongly typed Model to tell the compiler, this page needs a List of Coffee Shops to work. 
 - Using Razor, we are looping over the Model and display a simple bootstrap based html structure
 
->NOTE: the form will not work yet. that is next...
-
 
 ## BONUS: Adding a Coffee Shop
 
-Congratulations! You have created a simple data driven .NET Core site. But a read only site is nice, lets upgrade our site to let users input data as well. 
+Congratulations! You have created a simple data driven .NET Core site. But a read only site is only so nice, lets upgrade our site to let users input data as well. 
 
 We need to make a few changes. 
 
@@ -254,15 +255,12 @@ First, Add this form to `Index.cshtml` page. Anywhere you want:
             <option>4</option>
             <option>5</option>
         </select>
-
     </div>
-
     <button class="btn btn-primary btn-lg" type="submit"> Add One </button>
-
 </form>
 ```
 
-This is doing a `POST` back to our server. That means our server will need to accept the `POST`. Open up `HomeController.cshtml` and add the following code:
+This form is doing a `POST` back to our server. That means our server will need to accept the `POST`. Open up `HomeController.cshtml` and add the following code after the `Index` route:
 
 
 ```C#
