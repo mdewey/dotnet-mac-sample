@@ -7,13 +7,13 @@
 - [Required Software](https://github.com/mdewey/dotnet-mac-sample#required-software)
 - [Setting up the Project](https://github.com/mdewey/dotnet-mac-sample#setting-up-the-project)
 - [Viewing all Shops](https://github.com/mdewey/dotnet-mac-sample#viewing-all-shops)
-- [Adding a Coffee Shop](https://github.com/mdewey/dotnet-mac-sample#adding-a-coffee-shop)
+- [Adding a Coffee Shop](https://github.com/mdewey/dotnet-mac-sample#bonus-adding-a-coffee-shop)
 
 
 ## Intro
-Welcome to learning about .NET Core on a Mac with Mark Dewey. Together we will creating a simple Coffee Shop app that allows us to save our favorite coffee shops. This will help explore the topics of tooling and MVC using ASP.NET Core. 
+Welcome to learning about .NET Core on a Mac with Mark Dewey. Together we will creating a simple app that allows us to save our favorite coffee shops. This will help explore the topics of tooling and MVC using ASP.NET Core. 
 
-This is meant to go hand and hand with the Crash Course `.NET on a Mac`. If you are trying this out no there, feel free to reach out to Mark @ mark@suncoast.io if you have issues or questions
+This is meant to go hand and hand with the Crash Course `.NET on a Mac`. If you are trying this out own your own, feel free to reach out to Mark @ mark@suncoast.io if you have issues or questions
 
 
 ## Required Software
@@ -24,7 +24,7 @@ This is meant to go hand and hand with the Crash Course `.NET on a Mac`. If you 
 
 First we need to make a new project. This can be done with the new CLI. 
 
-Open up a terminal, create a new folder and run :
+Open up a terminal, navigate where you want to create the site, create a new folder and run :
 
 ```
 dotnet new mvc
@@ -39,7 +39,7 @@ dotnet run
 Take a few seconds to checkout what all the starter gave you. 
 
 ## Viewing all Shops
-Lets update the template homepage to display a list of coffee shops. This means we need to do a couple of things. We need to 
+Lets update the scaffolding homepage to display a list of coffee shops. This means we need to do a couple of things. We need to 
 ```
 - Add a data source
 - query the data source 
@@ -53,7 +53,7 @@ Let's approach this one at a time
 ### Add a data source
 To keep our stack simple, we will use an in memory database. .NET Core comes with Entity Framework Core. EF Core is the ORM created to work with .NET Core. 
 
-In order to use an ORM, like EF Core we first must Model our data. In the `Models` folder, Create a new file called `CoffeeShop.cs` and paste the follow code:
+In order to use an ORM, like EF Core, we first must Model our data using POCOs. In the `Models` folder, create a new file called `CoffeeShop.cs` and paste in the follow code:
 
 >IMPORTANT: Update the namespace from `dotnet_mac_sample` to your namespace. You can find your namespace in your `Startup.cs` file
 
@@ -78,7 +78,7 @@ namespace dotnet_mac_sample.Models
 
 To use EF Core we need to add a `DataContext` to our project and register the new `DataContext` with our web app. The `DataContext` is an in code representation of your database. We will running our queries against this later.  
 
-First, lets create a new DataContext. In the `Models` folder, Create a new file called `CoffeeContext.cs` and paste the follow code:
+Next, we need to create a new `DataContext`. In the `Models` folder, Create a new file called `CoffeeContext.cs` and paste the follow code:
 
 >IMPORTANT: Update the namespace from `dotnet_mac_sample` to your namespace. You can find your namespace in your `Startup.cs` file
 
@@ -100,7 +100,7 @@ namespace dotnet_mac_sample.Models
 }
 ```
 
-Once that is created, open `Startup.cs`. Most of this file will look like goobly-gook. Feel free to try to read. This is what configures our web site once we run it. 
+Once that is created, open `Startup.cs`. Most of this file will look like goobly-gook. Feel free to look around. Most of the names are good enough to make a pretty good guess to what it does. This file is what configures our web site once we run it. 
 
 We need to add two lines here.
 
