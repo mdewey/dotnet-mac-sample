@@ -18,5 +18,22 @@ This is meant to go hand and hand with the Crash Course `.NET on a Mac`. If you 
 
 ## Required Software
 ## Setting up the Project
+
+First we need to make a new project. This can be done with the new CLI. 
+
+Open up a terminal, create a new folder and run :
+
+```
+dotnet new mvc
+```
+
+this will give us a new, blank starter project. You can run it using: 
+
+``` 
+dotnet run
+```
+
+Take a few seconds to checkout what all the starter gave you. 
+
 ## Viewing all Shops
 ## Adding a Coffee Shop
