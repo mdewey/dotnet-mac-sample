@@ -103,6 +103,7 @@ namespace dotnet_mac_sample.Models
 }
 ```
 
+#### Adding to Startup.cs
 Once that is created, open `Startup.cs`. Most of this file will look like goobly-gook. Feel free to look around. Most of the names are good enough to make a pretty good guess to what it does. This file is what configures our web site once we run it. 
 
 We need to add two lines here.
